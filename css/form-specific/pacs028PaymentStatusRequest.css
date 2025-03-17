@@ -1,0 +1,251 @@
+/* Form-specific styles for Pacs028 - Payment Status Request */
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h2 {
+    color: #0047AB;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.form-description {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.field-hint {
+    display: block;
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .form-section h2 {
+        color: #66b0ff;
+    }
+
+    .form-description {
+        color: #ccc;
+    }
+
+    .field-hint {
+        color: #aaa;
+    }
+}
+
+/* Add these styles to your existing CSS file */
+
+/* Search Results Styling */
+.search-results {
+    margin-top: 30px;
+    display: none;
+}
+
+.loading-spinner {
+    text-align: center;
+    padding: 20px;
+}
+
+.loading-spinner::after {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #0047AB;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.no-results {
+    background-color: #f9f9f9;
+    border-left: 4px solid #f0ad4e;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.error-panel {
+    background-color: #f9f9f9;
+    border-left: 4px solid #d9534f;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.results-panel {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.results-panel h3 {
+    margin-top: 0;
+    color: #0047AB;
+    margin-bottom: 10px;
+}
+
+.results-count {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.payment-result {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.result-header {
+    background-color: #f5f5f5;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.message-id {
+    font-weight: bold;
+    color: #333;
+}
+
+.status {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.status.acsp {
+    background-color: #fcf8e3;
+    color: #8a6d3b;
+}
+
+.status.accc {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.status.rjct {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+.payment-details {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.payment-details th,
+.payment-details td {
+    padding: 8px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.payment-details th {
+    width: 140px;
+    color: #666;
+    font-weight: normal;
+}
+
+.result-actions {
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    text-align: right;
+}
+
+.action-button {
+    background-color: #0047AB;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.action-button:hover {
+    background-color: #00378a;
+}
+
+.error-details {
+    font-family: monospace;
+    background-color: #f5f5f5;
+    padding: 8px;
+    border-radius: 4px;
+    color: #d9534f;
+    margin-top: 10px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+
+    .no-results,
+    .error-panel {
+        background-color: #2d2d2d;
+        border-left-color: #666;
+    }
+
+    .results-panel {
+        background-color: #1e1e1e;
+    }
+
+    .payment-result {
+        border-color: #444;
+    }
+
+    .result-header {
+        background-color: #2d2d2d;
+        border-bottom-color: #444;
+    }
+
+    .payment-details th,
+    .payment-details td {
+        border-bottom-color: #444;
+    }
+
+    .result-actions {
+        background-color: #2d2d2d;
+    }
+
+    .status.acsp {
+        background-color: #4a4531;
+        color: #e6d292;
+    }
+
+    .status.accc {
+        background-color: #2e3e2e;
+        color: #9fd99f;
+    }
+
+    .status.rjct {
+        background-color: #4a2e2e;
+        color: #e6a8a8;
+    }
+
+    .error-details {
+        background-color: #332222;
+    }
+}

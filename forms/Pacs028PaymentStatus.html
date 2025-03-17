@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Pacs028 - Payment Status Request</title>
+    <link rel="stylesheet" href="../css/core.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <link rel="stylesheet" href="../css/form-specific/pacs028.css">
+</head>
+
+<body>
+    <div id="component-header"></div>
+
+    <div class="form-container">
+        <div class="bank-logo-container">
+            <img src="../images/bank.png" alt="Bank Logo">
+        </div>
+
+        <div class="idebit-logo-centered-container">
+            <img src="../images/idebit-logo-centered.png"
+                alt="iDebit Logo">
+            <h1>Payment Status Request (Pacs028)</h1>
+        </div>
+
+        <form id="bankingForm" data-validate="true"
+            onsubmit="return false;">
+            <!-- Payment Status Request Information -->
+            <div class="form-section">
+                <!-- <h2>Reference Information</h2> -->
+                <!-- <p class="form-description">
+                    Enter the original payment message details to query
+                    its status.
+                </p> -->
+
+                <div class="form-group">
+                    <label for="orgnlMsgId">Original Message ID:</label>
+                    <input type="text" id="orgnlMsgId" name="orgnlMsgId"
+                        placeholder="Enter the message ID of the original payment"
+                        autocomplete="off" data-lpignore="true" required
+                        data-validate="required">
+                    <span class="error-message"
+                        id="orgnlMsgId_error"></span>
+                    <!-- <span class="field-hint">The unique identifier of
+                        the original payment message</span>
+                </div> -->
+
+                <div class="form-group">
+                    <label for="orgnlMsgNmId">Original Message Name
+                        ID:</label>
+                    <input type="text" id="orgnlMsgNmId"
+                        name="orgnlMsgNmId"
+                        placeholder="e.g., pacs.008.001.08"
+                        autocomplete="off" data-lpignore="true" required
+                        data-validate="required">
+                    <span class="error-message"
+                        id="orgnlMsgNmId_error"></span>
+                    <!-- <span class="field-hint">The type and version of the
+                        original message (typically
+                        pacs.008.001.XX)</span> -->
+                </div>
+            </div>
+
+            <!-- Optional Additional Query Parameters -->
+            <div class="collapsible-section"
+                id="additional-params-section">
+                <div class="section-header">Additional Search Parameters
+                    (Optional)</div>
+                <div class="section-fields">
+                    <div class="section-field">
+                        <label for="orgnlEndToEndId">Original End-to-End
+                            ID:</label>
+                        <input type="text" id="orgnlEndToEndId"
+                            name="orgnlEndToEndId"
+                            placeholder="End-to-end identifier from original payment">
+                        <span class="error-message"
+                            id="orgnlEndToEndId_error"></span>
+                    </div>
+
+                    <div class="section-field">
+                        <label for="creditorName">Creditor Name:</label>
+                        <input type="text" id="creditorName"
+                            name="creditorName"
+                            placeholder="Name of payment recipient">
+                        <span class="error-message"
+                            id="creditorName_error"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Request Payment Status</button>
+        </form>
+
+        <div id="component-footer"></div>
+    </div>
+
+    <script src="../js/core.js"></script>
+    <script src="../js/validation.js"></script>
+    <script src="../js/formatters.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load components
+            loadComponent('component-header', '../components/header.html');
+            loadComponent('component-footer', '../components/footer.html');
+        });
+    </script>
+    <!-- Add this before the closing body tag -->
+<!-- Add this with your other script tags -->
+<script src="../js/db/dbHandler.js"></script>
+<script src="../js/form-specific/pacs028.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load components
+            loadComponent('component-header', '../components/header.html');
+            loadComponent('component-footer', '../components/footer.html');
+        });
+    </script>
+</body>
+
+</html>

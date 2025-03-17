@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Banking Forms Suite</title>
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <style>
+        /* Dashboard specific styles */
+        .form-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .form-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: calc(33.333% - 20px);
+            min-width: 250px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .form-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .form-card h2 {
+            color: #0047AB;
+            margin-top: 0;
+        }
+
+        .form-card p {
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .form-card {
+                background-color: #2d2d2d;
+            }
+
+            .form-card p {
+                color: #ccc;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <div class="bank-logo-container">
+            <img src="images/bank.png" alt="Bank Logo">
+        </div>
+
+        <h1>idebit Banking Forms Suite</h1>
+
+        <div class="form-cards">
+            <div class="form-card"
+                onclick="location.href='forms/pacs008.html'">
+                <h2>Pacs008</h2>
+                <p>Customer Credit Transfer</p>
+                <p class="form-desc">Use for sending payment transfers
+                    to customers.</p>
+            </div>
+
+            <div class="form-card"
+                onclick="location.href='forms/pacs028.html'">
+                <h2>Pacs028</h2>
+                <p>Payment Status Request</p>
+                <p class="form-desc">Use for requesting information
+                    about payments.</p>
+            </div>
+
+            <div class="form-card"
+                onclick="location.href='forms/camt056.html'">
+                <h2>Camt056</h2>
+                <p>Return Request</p>
+                <p class="form-desc">Use for canceling previously sent
+                    payments.</p>
+            </div>
+        </div>
+
+        <div id="form-footer" class="footer">
+            <p>Banking Forms Suite v1.0 &copy; 2025</p>
+        </div>
+    </div>
+
+    <script src="js/core.js"></script>
+    <script>
+        // Check if dark mode is preferred
+        const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (prefersDarkMode) {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Listen for changes in color scheme preference
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            if (e.matches) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        });
+    </script>
+</body>
+
+</html>

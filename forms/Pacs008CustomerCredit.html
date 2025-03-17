@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Pacs008 - Customer Credit Transfer</title>
+    <link rel="stylesheet" href="../css/core.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <link rel="stylesheet" href="../css/form-specific/pacs008.css">
+</head>
+
+<body>
+    <div id="component-header"></div>
+
+    <div class="form-container">
+        <div class="bank-logo-container">
+            <img src="../images/bank.png" alt="Bank Logo">
+        </div>
+
+        <div class="idebit-logo-centered-container">
+            <img src="../images/idebit-logo-centered.png"
+                alt="iDebit Logo">
+            <h1>Customer Credit Transfer (Pacs008)</h1>
+        </div>
+
+        <form id="bankingForm" data-validate="true"
+            onsubmit="return false;">
+            <!-- Debtor Section (Collapsible) -->
+            <div class="collapsible-section" id="debtor-section">
+                <div class="section-header">Debtor Information</div>
+                <div class="section-fields">
+                    <div class="section-field">
+                        <label for="debtor_routing">Routing
+                            Number:</label>
+                        <input type="text" id="debtor_routing"
+                            name="debtor_routing"
+                            placeholder="Debtor Routing Number"
+                            autocomplete="on" data-lpignore="true"
+                            data-validate="required routingNumber"
+                            data-type="routing">
+                        <span class="error-message"
+                            id="debtor_routing_error"></span>
+                    </div>
+
+                    <div class="section-field">
+                        <label for="debtor_account">Account
+                            Number:</label>
+                        <input type="text" id="debtor_account"
+                            name="debtor_account"
+                            placeholder="Debtor Account Number"
+                            data-validate="required accountNumber">
+                        <span class="error-message"
+                            id="debtor_account_error"></span>
+                    </div>
+
+                    <div class="section-field">
+                        <label for="debtor_name">Account Holder
+                            Name:</label>
+                        <input type="text" id="debtor_name"
+                            name="debtor_name"
+                            placeholder="Debtor Name on Account"
+                            data-validate="required">
+                        <span class="error-message"
+                            id="debtor_name_error"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Creditor Section (Collapsible) -->
+            <div class="collapsible-section" id="creditor-section">
+                <div class="section-header">Creditor Information</div>
+                <div class="section-fields">
+                    <div class="section-field">
+                        <label for="creditor_routing">Routing
+                            Number:</label>
+                        <input type="text" id="creditor_routing"
+                            name="creditor_routing"
+                            placeholder="Creditor Routing Number"
+                            autocomplete="on" data-lpignore="true"
+                            data-validate="required routingNumber"
+                            data-type="routing">
+                        <span class="error-message"
+                            id="creditor_routing_error"></span>
+                    </div>
+
+                    <div class="section-field">
+                        <label for="creditor_account">Account
+                            Number:</label>
+                        <input type="text" id="creditor_account"
+                            name="creditor_account"
+                            placeholder="Creditor Account Number"
+                            data-validate="required accountNumber">
+                        <span class="error-message"
+                            id="creditor_account_error"></span>
+                    </div>
+
+                    <div class="section-field">
+                        <label for="creditor_name">Account Holder
+                            Name:</label>
+                        <input type="text" id="creditor_name"
+                            name="creditor_name"
+                            placeholder="Creditor Name on Account"
+                            data-validate="required">
+                        <span class="error-message"
+                            id="creditor_name_error"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Details Section -->
+            <div class="form-group currency-group">
+                <label for="payment_amount">Payment Amount
+                    (USD):</label>
+                <div class="input-with-icon">
+                    <span class="currency-symbol">$</span>
+                    <input type="number" id="payment_amount"
+                        name="payment_amount" placeholder="0.00"
+                        step="0.01" min="0.01" max="1000000"
+                        autocomplete="off" data-lpignore="true" required
+                        data-validate="required currency"
+                        data-format="currency">
+                </div>
+                <span class="error-message"
+                    id="payment_amount_error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="payment_purpose">Payment Purpose
+                    (Optional):</label>
+                <input type="text" id="payment_purpose"
+                    name="payment_purpose"
+                    placeholder="e.g., Invoice payment, account transfer, etc.">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Payment</button>
+        </form>
+
+        <div id="component-footer"></div>
+    </div>
+
+    <script src="../js/core.js"></script>
+    <script src="../js/validation.js"></script>
+    <script src="../js/formatters.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load components
+            loadComponent('component-header', '../components/header.html');
+            loadComponent('component-footer', '../components/footer.html');
+        });
+    </script>
+</body>
+
+</html>

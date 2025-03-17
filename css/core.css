@@ -1,0 +1,367 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    background-image: linear-gradient(135deg, #c7d6f8 10%, #e8e8f0 90%);
+    min-height: 100vh;
+    padding: 20px 0;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 38px;
+    box-shadow:
+        0 0 0 2px #e2e2e2,
+        0 4px 15px rgba(0, 0, 0, 0.1),
+        0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-container::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 5px;
+    background-color: #e2e2e2;
+    border-radius: 3px;
+    z-index: 10;
+}
+
+/* Logo Containers */
+.bank-logo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.bank-logo-container img {
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.idebit-logo-centered-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.idebit-logo-centered-container img {
+    max-width: 125px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Typography */
+h1 {
+    text-align: center;
+    color: #333333;
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+}
+
+/* Form Elements */
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='email'],
+input[type='tel'],
+select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    color: #000;
+    font-weight: 500;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Collapsible Sections */
+.collapsible-section {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.section-header {
+    cursor: pointer;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-header::before {
+    content: "+";
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.section-header:hover {
+    background-color: #e8e8f0;
+}
+
+.section-fields {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.section-field {
+    margin: 15px 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+/* Show fields when section is active OR focused */
+.collapsible-section.active .section-fields,
+.collapsible-section:focus-within .section-fields {
+    max-height: 500px;
+}
+
+.collapsible-section.active .section-field,
+.collapsible-section:focus-within .section-field {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Change plus to minus when active */
+.collapsible-section.active .section-header::before {
+    content: "−";
+    /* Unicode minus sign */
+}
+
+/* Currency Input Styling */
+.currency-group {
+    position: relative;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.currency-group .input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.currency-group .currency-symbol {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: #333;
+    pointer-events: none;
+    font-size: 16px;
+    z-index: 2;
+    user-select: none;
+}
+
+.currency-group input[type="number"] {
+    width: 100%;
+    padding: 12px 12px 12px 28px;
+    color: #000;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* Hide browser spinner buttons on number input */
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.formatted-amount-container {
+    width: 100%;
+    text-align: right;
+    padding-right: 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.formatted-amount {
+    font-weight: bold;
+    color: #5490d1;
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 0;
+}
+
+/* Submit Button Styling */
+button[type='submit'] {
+    display: block;
+    width: 80%;
+    margin: 30px auto;
+    padding: 15px 20px;
+    background-color: #0047AB;
+    /* Dark blue color */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type='submit']:hover {
+    background-color: #040a6f;
+    /* Slightly darker blue on hover */
+}
+
+button[type='submit']:active {
+    transform: scale(0.98);
+}
+
+/* Form validation styling */
+.error-message {
+    color: #d9534f;
+    font-size: 0.85em;
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .form-container {
+        max-width: 90%;
+        margin: 30px auto;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .bank-logo-container img {
+        max-width: 200px;
+    }
+
+    .idebit-logo-centered-container img {
+        max-width: 100px;
+    }
+
+    /* Slightly smaller padding on mobile */
+    .section-header {
+        padding: 12px;
+    }
+
+    button[type='submit'] {
+        width: 90%;
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+}
+
+/* Very small screens / phones */
+@media screen and (max-width: 480px) {
+    .form-container {
+        max-width: 95%;
+        margin: 10px auto;
+        border-radius: 20px;
+        padding: 15px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container::before {
+        width: 60px;
+        top: 12px;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .bank-logo-container img {
+        max-width: 150px;
+    }
+
+    .idebit-logo-centered-container img {
+        max-width: 80px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type='text'],
+    input[type='number'],
+    select {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    /* Stack form groups more tightly on small screens */
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    button[type='submit'] {
+        width: 100%;
+        padding: 10px;
+        margin: 20px auto;
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,140 @@
+/* Light Mode - Default */
+:root {
+    --bg-primary: #f4f4f9;
+    --bg-gradient: linear-gradient(135deg, #c7d6f8 10%, #e8e8f0 90%);
+    --bg-form: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --border-color: #e2e2e2;
+    --input-bg: #ffffff;
+    --input-text: #000000;
+    --input-border: #cccccc;
+    --header-bg: #f8f9fa;
+    --header-hover: #e8e8f0;
+    --accent-color: #0047AB;
+    --accent-hover: #040a6f;
+    --formatted-amount: #5490d1;
+    --error-color: #d9534f;
+    --box-shadow: 0 0 0 2px #e2e2e2, 0 4px 15px rgba(0, 0, 0, 0.1), 0 10px 30px rgba(0, 0, 0, 0.08);
+    --currency-symbol: #333333;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #121212;
+        --bg-gradient: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+        --bg-form: #1e1e1e;
+        --text-primary: #ffffff;
+        --text-secondary: #cccccc;
+        --border-color: #333333;
+        --input-bg: #2d2d2d;
+        --input-text: #ffffff;
+        --input-border: #444444;
+        --header-bg: #2d2d2d;
+        --header-hover: #3d3d3d;
+        --accent-color: #0047AB;
+        --accent-hover: #0056b3;
+        --formatted-amount: #66b0ff;
+        --error-color: #ff6b6b;
+        --box-shadow: 0 0 0 2px #333333, 0 4px 15px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.2);
+        --currency-symbol: #ffffff;
+    }
+
+    /* Apply variables to elements */
+    body {
+        background-color: var(--bg-primary);
+        background-image: var(--bg-gradient);
+        color: var(--text-primary);
+    }
+
+    .form-container {
+        background-color: var(--bg-form);
+        box-shadow: var(--box-shadow);
+    }
+
+    .form-container::before {
+        background-color: var(--border-color);
+    }
+
+    h1,
+    h2,
+    h3 {
+        color: var(--text-primary);
+    }
+
+    .section-header {
+        background-color: var(--header-bg);
+    }
+
+    .section-header:hover {
+        background-color: var(--header-hover);
+    }
+
+    input[type='text'],
+    input[type='number'],
+    input[type='email'],
+    input[type='tel'],
+    select {
+        background-color: var(--input-bg);
+        color: var(--input-text);
+        border-color: var(--input-border);
+    }
+
+    .currency-group .currency-symbol {
+        color: var(--currency-symbol);
+    }
+
+    .formatted-amount {
+        color: var(--formatted-amount);
+    }
+
+    .error-message {
+        color: var(--error-color);
+    }
+
+    .footer {
+        color: var(--text-secondary);
+    }
+}
+
+/* Forced themes - for the theme toggle */
+body.force-light {
+    --bg-primary: #f4f4f9 !important;
+    --bg-gradient: linear-gradient(135deg, #c7d6f8 10%, #e8e8f0 90%) !important;
+    --bg-form: #ffffff !important;
+    --text-primary: #333333 !important;
+    --text-secondary: #666666 !important;
+    --border-color: #e2e2e2 !important;
+    --input-bg: #ffffff !important;
+    --input-text: #000000 !important;
+    --input-border: #cccccc !important;
+    --header-bg: #f8f9fa !important;
+    --header-hover: #e8e8f0 !important;
+    --accent-color: #0047AB !important;
+    --accent-hover: #040a6f !important;
+    --formatted-amount: #5490d1 !important;
+    --error-color: #d9534f !important;
+    --box-shadow: 0 0 0 2px #e2e2e2, 0 4px 15px rgba(0, 0, 0, 0.1), 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    --currency-symbol: #333333 !important;
+}
+
+body.force-dark {
+    --bg-primary: #121212 !important;
+    --bg-gradient: linear-gradient(135deg, #121212 0%, #1a1a1a 100%) !important;
+    --bg-form: #1e1e1e !important;
+    --text-primary: #ffffff !important;
+    --text-secondary: #cccccc !important;
+    --border-color: #333333 !important;
+    --input-bg: #2d2d2d !important;
+    --input-text: #ffffff !important;
+    --input-border: #444444 !important;
+    --header-bg: #2d2d2d !important;
+    --header-hover: #3d3d3d !important;
+    --accent-color: #0047AB !important;
+    --accent-hover: #0056b3 !important;
+    --formatted-amount: #66b0ff !important;
+    --error-color: #ff6b6b !important;
+    --box-shadow: 0 0 0 2px #333333, 0 4px 15px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+    --currency-symbol: #ffffff !important;
+}

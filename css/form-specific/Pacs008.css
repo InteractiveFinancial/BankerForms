@@ -1,0 +1,25 @@
+/* Form-specific styles for Pacs008 - Customer Credit Transfer */
+
+/* Add any custom styles specific to this form here */
+.payment-purpose-info {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Ensure currency field has a bit more spacing due to its importance */
+.currency-group {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .payment-purpose-info {
+        color: #aaa;
+    }
+
+    .currency-group input[type="number"] {
+        color: #fff;
+    }
+}
