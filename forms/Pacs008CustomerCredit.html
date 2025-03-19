@@ -27,38 +27,38 @@
 
         <form id="bankingForm" data-validate="true"
             onsubmit="return false;">
-            <!-- Debtor Section (Collapsible) -->
+
             <!-- Debtor Section (Collapsible) -->
             <div class="collapsible-section" id="debtor-section">
                 <div class="section-header">Debtor Information</div>
                 <div class="section-fields">
                     <!-- Add Instructing Agent field first -->
                     <div class="section-field">
-                        <label for="instg_agt_routing">Instructing Agent
+                        <label for="mmbId_InstgAgt">Instructing Agent
                             Routing
                             Number:</label>
-                        <input type="text" id="instg_agt_routing"
-                            name="instg_agt_routing"
+                        <input type="text" id="mmbId_InstgAgt"
+                            name="mmbId_InstgAgt"
                             placeholder=" Routing Number of Bank Initiating Payment"
                             autocomplete="on" data-lpignore="true"
                             data-validate="required routingNumber"
                             data-type="routing">
                         <span class="error-message"
-                            id="instg_agt_routing_error"></span>
+                            id="mmbId_InstgAgt_error"></span>
                     </div>
 
                     <!-- Modified Debtor Routing field with checkbox -->
                     <div class="section-field">
-                        <label for="debtor_routing">Debtor Routing
+                        <label for="debtor_mmbId">Debtor Routing
                             Number:</label>
-                        <input type="text" id="debtor_routing"
-                            name="debtor_routing"
+                        <input type="text" id="debtor_mmbId"
+                            name="debtor_mmdId"
                             placeholder="Routing Number of Bank Holding Debtor's Account"
                             autocomplete="on" data-lpignore="true"
                             data-validate="required routingNumber"
                             data-type="routing">
                         <span class="error-message"
-                            id="debtor_routing_error"></span>
+                            id="debtor_mmbId_error"></span>
                         <div class="checkbox-container">
                             <label class="checkbox-label">
                                 <input type="checkbox"
@@ -72,26 +72,26 @@
 
                     <!-- Account number field -->
                     <div class="section-field">
-                        <label for="debtor_account">Account
+                        <label for="debtor_id_DebtorAcct">Account
                             Number:</label>
-                        <input type="text" id="debtor_account"
-                            name="debtor_account"
+                        <input type="text" id="debtor_id_DebtorAcct"
+                            name="debtor_id_DebtorAcct"
                             placeholder="Debtor Account Number"
                             data-validate="required accountNumber">
                         <span class="error-message"
-                            id="debtor_account_error"></span>
+                            id="debtor_id_DebtorAcct_error"></span>
                     </div>
 
                     <!-- Account holder name field -->
                     <div class="section-field">
-                        <label for="debtor_name">Account Holder
+                        <label for=" debtor_nm_Debtor">Account Holder
                             Name:</label>
-                        <input type="text" id="debtor_name"
-                            name="debtor_name"
+                        <input type="text" id="debtor_nm_Debtor"
+                            name="debtor_nm_Debtor"
                             placeholder="Debtor Name on Account"
                             data-validate="required">
                         <span class="error-message"
-                            id="debtor_name_error"></span>
+                            id="debtor_nm_Debtor_error"></span>
                     </div>
                 </div>
             </div>
@@ -102,31 +102,32 @@
                 <div class="section-header">Creditor Information</div>
                 <div class="section-fields">
                     <div class="section-field">
-                        <label for="instd_agt_routing">Instructed Agent
+                        <label for="mmbId_InstdAgt">Instructed Agent
                             Routing
                             Number:</label>
-                        <input type="text" id="instd_agt_routing"
-                            name="instd_agt_routing"
+                        <input type="text" id="mmbId_InstdAgt"
+                            name="mmbId_InstdAgt"
                             placeholder="Routing Number of Creditor's Intermediary Bank"
                             autocomplete="on" data-lpignore="true"
                             data-validate="required routingNumber"
                             data-type="routing">
                         <span class="error-message"
-                            id="instd_agt_routing_error"></span>
+                            id="mmbId_InstdAgt_error"></span>
                     </div>
 
                     <!-- Modified Creditor Routing field with checkbox -->
                     <div class="section-field">
-                        <label for="creditor_routing">Creditor Routing
+                        <label for="credit_mmbId_CdtrAgt">Creditor
+                            Routing
                             Number:</label>
-                        <input type="text" id="creditor_routing"
-                            name="creditor_routing"
+                        <input type="text" id="credit_mmbId_CdtrAgt"
+                            name="credit_mmbId_CdtrAgt"
                             placeholder="Routing Number of Bank Holding Creditor's Account"
                             autocomplete="on" data-lpignore="true"
                             data-validate="required routingNumber"
                             data-type="routing">
                         <span class="error-message"
-                            id="creditor_routing_error"></span>
+                            id="credit_mmbId_CdtrAgt_error"></span>
                         <div class="checkbox-container">
                             <label class="checkbox-label">
                                 <input type="checkbox"
@@ -139,51 +140,50 @@
                     </div>
 
                     <div class="section-field">
-                        <label for="creditor_account">Account
+                        <label for="credit_id_CreditorAcct">Account
                             Number:</label>
-                        <input type="text" id="creditor_account"
-                            name="creditor_account"
+                        <input type="text" id="credit_id_CreditorAcct"
+                            name="credit_id_CreditorAcct"
                             placeholder="Creditor Account Number"
                             data-validate="required accountNumber">
                         <span class="error-message"
-                            id="creditor_account_error"></span>
+                            id="credit_id_CreditorAcct_error"></span>
                     </div>
 
                     <div class="section-field">
-                        <label for="creditor_name">Account Holder
+                        <label for="credit_nm_Creditor">Account Holder
                             Name:</label>
-                        <input type="text" id="creditor_name"
-                            name="creditor_name"
+                        <input type="text" id="credit_nm_Creditor"
+                            name="credit_nm_Creditor"
                             placeholder="Creditor Name on Account"
                             data-validate="required">
                         <span class="error-message"
-                            id="creditor_name_error"></span>
+                            id="credit_nm_Creditor_error"></span>
                     </div>
                 </div>
             </div>
 
             <!-- Payment Details Section -->
             <div class="form-group currency-group">
-                <label for="payment_amount">Payment Amount
+                <label for="intrBkSttlmAmt">Payment Amount
                     (USD):</label>
                 <div class="input-with-icon">
                     <span class="currency-symbol">$</span>
-                    <input type="number" id="payment_amount"
-                        name="payment_amount" placeholder="0.00"
+                    <input type="number" id="intrBkSttlmAmt"
+                        name="intrBkSttlmAmt" placeholder="0.00"
                         step="0.01" min="0.01" max="1000000"
                         autocomplete="off" data-lpignore="true" required
                         data-validate="required currency"
                         data-format="currency">
                 </div>
                 <span class="error-message"
-                    id="payment_amount_error"></span>
+                    id="intrBkSttlmAmt_error"></span>
             </div>
 
             <div class="form-group">
-                <label for="payment_purpose">Payment Purpose
+                <label for="nb">Payment Purpose
                     (Optional):</label>
-                <input type="text" id="payment_purpose"
-                    name="Nb_RfrdDocInf"
+                <input type="text" id="nb" name="nb"
                     placeholder="e.g., Invoice payment, account transfer, etc.">
             </div>
 
@@ -208,8 +208,8 @@
             const sameAsInstgAgtCheckbox = document.getElementById('same_as_instg_agt');
             if (sameAsInstgAgtCheckbox) {
                 sameAsInstgAgtCheckbox.addEventListener('change', function () {
-                    const instgAgtRoutingField = document.getElementById('instg_agt_routing');
-                    const debtorRoutingField = document.getElementById('debtor_routing');
+                    const instgAgtRoutingField = document.getElementById('mmbId_InstgAgt');
+                    const debtorRoutingField = document.getElementById('debtor_mmbId');
 
                     if (this.checked) {
                         // Auto-populate if checked
@@ -228,8 +228,8 @@
                 // Function to update debtor routing when instructing agent routing changes
                 function updateDebtorRouting() {
                     if (sameAsInstgAgtCheckbox.checked) {
-                        document.getElementById('debtor_routing').value =
-                            document.getElementById('instg_agt_routing').value;
+                        document.getElementById('debtor_mmbId').value =
+                            document.getElementById('mmbId_InstgAgt').value;
                     }
                 }
             }
@@ -238,7 +238,7 @@
             const sameAsInstdAgtCheckbox = document.getElementById('same_as_instd_agt');
             if (sameAsInstdAgtCheckbox) {
                 sameAsInstdAgtCheckbox.addEventListener('change', function () {
-                    const instdAgtRoutingField = document.getElementById('instd_agt_routing');
+                    const instdAgtRoutingField = document.getElementById('mmbId_InstdAgt');
                     const creditorRoutingField = document.getElementById('creditor_routing');
 
                     if (this.checked) {
@@ -259,7 +259,7 @@
                 function updateCreditorRouting() {
                     if (sameAsInstdAgtCheckbox.checked) {
                         document.getElementById('creditor_routing').value =
-                            document.getElementById('instd_agt_routing').value;
+                            document.getElementById('mmbId_InstdAgt').value;
                     }
                 }
             }
