@@ -28,22 +28,49 @@
         <form id="bankingForm" data-validate="true"
             onsubmit="return false;">
             <!-- Debtor Section (Collapsible) -->
+            <!-- Debtor Section (Collapsible) -->
             <div class="collapsible-section" id="debtor-section">
                 <div class="section-header">Debtor Information</div>
                 <div class="section-fields">
+                    <!-- Add Instructing Agent field first -->
                     <div class="section-field">
-                        <label for="debtor_routing">Routing
+                        <label for="instg_agt_routing">Instructing Agent
+                            Routing
+                            Number:</label>
+                        <input type="text" id="instg_agt_routing"
+                            name="instg_agt_routing"
+                            placeholder=" Routing Number of Bank Initiating Payment"
+                            autocomplete="on" data-lpignore="true"
+                            data-validate="required routingNumber"
+                            data-type="routing">
+                        <span class="error-message"
+                            id="instg_agt_routing_error"></span>
+                    </div>
+
+                    <!-- Modified Debtor Routing field with checkbox -->
+                    <div class="section-field">
+                        <label for="debtor_routing">Debtor Routing
                             Number:</label>
                         <input type="text" id="debtor_routing"
                             name="debtor_routing"
-                            placeholder="Debtor Routing Number"
+                            placeholder="Routing Number of Bank Holding Debtor's Account"
                             autocomplete="on" data-lpignore="true"
                             data-validate="required routingNumber"
                             data-type="routing">
                         <span class="error-message"
                             id="debtor_routing_error"></span>
+                        <div class="checkbox-container">
+                            <label class="checkbox-label">
+                                <input type="checkbox"
+                                    id="same_as_instg_agt">
+                                <span class="checkbox-text">Same as
+                                    Instructing
+                                    Agent</span>
+                            </label>
+                        </div>
                     </div>
 
+                    <!-- Account number field -->
                     <div class="section-field">
                         <label for="debtor_account">Account
                             Number:</label>
@@ -55,6 +82,7 @@
                             id="debtor_account_error"></span>
                     </div>
 
+                    <!-- Account holder name field -->
                     <div class="section-field">
                         <label for="debtor_name">Account Holder
                             Name:</label>
@@ -69,20 +97,45 @@
             </div>
 
             <!-- Creditor Section (Collapsible) -->
+
             <div class="collapsible-section" id="creditor-section">
                 <div class="section-header">Creditor Information</div>
                 <div class="section-fields">
                     <div class="section-field">
-                        <label for="creditor_routing">Routing
+                        <label for="instd_agt_routing">Instructed Agent
+                            Routing
+                            Number:</label>
+                        <input type="text" id="instd_agt_routing"
+                            name="instd_agt_routing"
+                            placeholder="Routing Number of Creditor's Intermediary Bank"
+                            autocomplete="on" data-lpignore="true"
+                            data-validate="required routingNumber"
+                            data-type="routing">
+                        <span class="error-message"
+                            id="instd_agt_routing_error"></span>
+                    </div>
+
+                    <!-- Modified Creditor Routing field with checkbox -->
+                    <div class="section-field">
+                        <label for="creditor_routing">Creditor Routing
                             Number:</label>
                         <input type="text" id="creditor_routing"
                             name="creditor_routing"
-                            placeholder="Creditor Routing Number"
+                            placeholder="Routing Number of Bank Holding Creditor's Account"
                             autocomplete="on" data-lpignore="true"
                             data-validate="required routingNumber"
                             data-type="routing">
                         <span class="error-message"
                             id="creditor_routing_error"></span>
+                        <div class="checkbox-container">
+                            <label class="checkbox-label">
+                                <input type="checkbox"
+                                    id="same_as_instd_agt">
+                                <span class="checkbox-text">Same as
+                                    Instructed
+                                    Agent</span>
+                            </label>
+                        </div>
                     </div>
 
                     <div class="section-field">
@@ -130,7 +183,7 @@
                 <label for="payment_purpose">Payment Purpose
                     (Optional):</label>
                 <input type="text" id="payment_purpose"
-                    name="payment_purpose"
+                    name="Nb_RfrdDocInf"
                     placeholder="e.g., Invoice payment, account transfer, etc.">
             </div>
 
@@ -145,10 +198,71 @@
     <script src="../js/validation.js"></script>
     <script src="../js/formatters.js"></script>
     <script>
+        // Add this inside your existing DOMContentLoaded event handler
         document.addEventListener('DOMContentLoaded', function () {
             // Load components
             loadComponent('component-header', '../components/header.html');
             loadComponent('component-footer', '../components/footer.html');
+
+            // Handle Instructing Agent checkbox (for Debtor section)
+            const sameAsInstgAgtCheckbox = document.getElementById('same_as_instg_agt');
+            if (sameAsInstgAgtCheckbox) {
+                sameAsInstgAgtCheckbox.addEventListener('change', function () {
+                    const instgAgtRoutingField = document.getElementById('instg_agt_routing');
+                    const debtorRoutingField = document.getElementById('debtor_routing');
+
+                    if (this.checked) {
+                        // Auto-populate if checked
+                        debtorRoutingField.value = instgAgtRoutingField.value;
+                        debtorRoutingField.disabled = true; // Prevent editing
+
+                        // If the instructing agent field changes, update debtor field too
+                        instgAgtRoutingField.addEventListener('input', updateDebtorRouting);
+                    } else {
+                        debtorRoutingField.disabled = false;
+                        // Remove the event listener when unchecked
+                        instgAgtRoutingField.removeEventListener('input', updateDebtorRouting);
+                    }
+                });
+
+                // Function to update debtor routing when instructing agent routing changes
+                function updateDebtorRouting() {
+                    if (sameAsInstgAgtCheckbox.checked) {
+                        document.getElementById('debtor_routing').value =
+                            document.getElementById('instg_agt_routing').value;
+                    }
+                }
+            }
+
+            // Handle Instructed Agent checkbox (for Creditor section)
+            const sameAsInstdAgtCheckbox = document.getElementById('same_as_instd_agt');
+            if (sameAsInstdAgtCheckbox) {
+                sameAsInstdAgtCheckbox.addEventListener('change', function () {
+                    const instdAgtRoutingField = document.getElementById('instd_agt_routing');
+                    const creditorRoutingField = document.getElementById('creditor_routing');
+
+                    if (this.checked) {
+                        // Auto-populate if checked
+                        creditorRoutingField.value = instdAgtRoutingField.value;
+                        creditorRoutingField.disabled = true; // Prevent editing
+
+                        // If the instructed agent field changes, update creditor field too
+                        instdAgtRoutingField.addEventListener('input', updateCreditorRouting);
+                    } else {
+                        creditorRoutingField.disabled = false;
+                        // Remove the event listener when unchecked
+                        instdAgtRoutingField.removeEventListener('input', updateCreditorRouting);
+                    }
+                });
+
+                // Function to update creditor routing when instructed agent routing changes
+                function updateCreditorRouting() {
+                    if (sameAsInstdAgtCheckbox.checked) {
+                        document.getElementById('creditor_routing').value =
+                            document.getElementById('instd_agt_routing').value;
+                    }
+                }
+            }
         });
     </script>
 </body>

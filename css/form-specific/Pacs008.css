@@ -13,6 +13,32 @@
     margin-top: 30px;
     margin-bottom: 30px;
 }
+.checkbox-container {
+    margin-top: 8px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.checkbox-text {
+    user-select: none;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .checkbox-label {
+        color: #ccc;
+    }
+}
 
 @media (prefers-color-scheme: dark) {
     .payment-purpose-info {
